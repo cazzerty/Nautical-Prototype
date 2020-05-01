@@ -28,6 +28,7 @@ public class ShipMovAcc : MonoBehaviour
         mainSailDeploy(InputY);
         currentAngularVelocity(InputX);
     }
+    //update for physics calculations
     void FixedUpdate()
     {
         
