@@ -45,9 +45,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\FakeChild.cs" />
+     <Compile Include="Assets\Scripts\FakeChildPlayer.cs" />
+     <Compile Include="Assets\Scripts\GameEvents.cs" />
      <Compile Include="Assets\Scripts\PlayerMov.cs" />
      <Compile Include="Assets\Scripts\ShipMovAcc.cs" />
      <Compile Include="Assets\Scripts\ShipMove.cs" />
+     <Compile Include="Assets\Scripts\playerTrigger.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -588,6 +592,10 @@
       <Project>{8be624fa-44ac-022e-451e-7910b5fdf540}</Project>
       <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{a8d12972-8ffe-a120-4770-eb2adc3e45ed}</Project>
+      <Name>Cinemachine</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
       <Project>{08b8851e-c7b8-3a29-b3fa-edb7d858f02c}</Project>
       <Name>Unity.VSCode.Editor</Name>
@@ -620,6 +628,10 @@
       <Project>{e93d06c3-53a9-4415-cab4-f0971062f24f}</Project>
       <Name>Unity.2D.Tilemap.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{4f4dc936-9f05-2f4f-9939-b1a467f02996}</Project>
+      <Name>com.unity.cinemachine.editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{41b6f13a-5e3f-eeec-200a-edf6c7415695}</Project>
       <Name>Unity.TextMeshPro</Name>
@@ -627,14 +639,6 @@
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{03be0f97-cc45-3ecb-8fb9-d12acaed352d}</Project>
       <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Cinemachine.csproj">
-      <Project>{a8d12972-8ffe-a120-4770-eb2adc3e45ed}</Project>
-      <Name>Cinemachine</Name>
-    </ProjectReference>
-    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
-      <Project>{4f4dc936-9f05-2f4f-9939-b1a467f02996}</Project>
-      <Name>com.unity.cinemachine.editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

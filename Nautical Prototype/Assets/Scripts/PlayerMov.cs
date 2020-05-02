@@ -6,7 +6,7 @@ public class PlayerMov : MonoBehaviour
 {
 
     public float playerSpeed = 2f;
-    public Rigidbody2D ShipRB2D;
+    //public Rigidbody2D ShipRB2D;
 
     // Start is called before the first frame update
     void Start()
@@ -15,11 +15,15 @@ public class PlayerMov : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector3 inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
         //account for ship velocity
-        GetComponent<Rigidbody2D>().velocity=(inputVector * playerSpeed) + ShipRB2D.velocity;
+        if (Mathf.Abs(inputVector.x) == 1 && Mathf.Abs(inputVector.y) == 1){
+            
+        }
+        GetComponent<Rigidbody2D>().velocity = (inputVector * playerSpeed);
+        //GetComponent<Rigidbody2D>().velocity=(inputVector * playerSpeed) + ShipRB2D.velocity;
         
     }
 }

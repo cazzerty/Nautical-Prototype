@@ -40,7 +40,7 @@ public class ShipMovAcc : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity= seperateVelocity(shipAngle, forwardVelocity);
     }
     void currentAngularVelocity(float i){
-        angularVel = angularVel + i/10;
+        angularVel = angularVel + i/3;
         if (Mathf.Abs(angularVel) > maxAngVel){
             if(angularVel > 0){
                 angularVel = maxAngVel;
@@ -64,12 +64,12 @@ public class ShipMovAcc : MonoBehaviour
             maxAngVel = 10;
             break;
             case 1:
-            forwardAcceleration = 0.1f;
-            maxAngVel = 35;
+            forwardAcceleration = 0.5f;
+            maxAngVel = 30;
             break;
             case 2:
-            forwardAcceleration = 0.2f;
-            maxAngVel = 25;
+            forwardAcceleration = 0.1f;
+            maxAngVel = 20;
             break;
         }
     }
