@@ -8,30 +8,52 @@ public class ShipMovAcc : MonoBehaviour
     private bool vCooldown;
     public float forwardVelocity, forwardAcceleration, angularVel;
     public float  maxAngVel = 20;
+
+    private bool mSail, sSail;
+    private bool wheelInUse;
+
+    //For Manual Control
+    public bool manualControl = false;
         float InputX;
         float InputY;
 
     // Start is called before the first frame update
+    private void Start(){
+        GameEvents.current.onMastInteract += mSailStateChange;
+        GameEvents.current.onMast2Interact += sSailStateChange;
+    }
     void Awake()
     {
+        //Set default Values
         mainSail = 0;
         vCooldown = false;
         angularVel = 0;
         maxAngVel = 20;
+        wheelInUse = false;
     }
 
     // Update is called once per frame
     void Update(){
-        //Get inputs
-        InputX = -1 *(Input.GetAxisRaw("Horizontal"));
-        InputY = Input.GetAxisRaw("Vertical");
-        mainSailDeploy(InputY);
-        currentAngularVelocity(InputX);
+        if(manualControl){
+            //Get inputs
+            InputX = -1 *(Input.GetAxisRaw("Horizontal"));
+            InputY = Input.GetAxisRaw("Vertical");
+            mainSailDeploy(InputY);
+            currentAngularVelocity(InputX);
+        }else{
+            setForwardAcceleration();
+            if(wheelInUse){
+                InputX = -1 *(Input.GetAxisRaw("Horizontal"));
+                currentAngularVelocity(InputX);
+            }
+        }
+    }
+    public bool getWheelInUse(){
+        return wheelInUse;
     }
     //update for physics calculations
     void FixedUpdate()
     {
-        
         //Ship Angle Calculations
         GetComponent<Rigidbody2D>().angularVelocity = angularVel;
         float shipAngle = transform.localRotation.eulerAngles.z;
@@ -56,6 +78,18 @@ public class ShipMovAcc : MonoBehaviour
             if(mainSail == 3){mainSail = 0;}
         }
         setForwardAcceleration();
+    }
+    private void mSailStateChange(){
+        if(mSail){mainSail--;}
+        else{mainSail++;}
+        mSail = !mSail;
+        Debug.Log("Main Sail state changed");
+    }
+    void sSailStateChange(){
+        if(sSail){mainSail--;}
+        else{mainSail++;}
+        sSail = !sSail;
+        Debug.Log("Second Sail state changed");
     }
     void setForwardAcceleration(){
         switch(mainSail){

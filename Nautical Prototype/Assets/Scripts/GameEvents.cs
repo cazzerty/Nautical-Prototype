@@ -17,4 +17,10 @@ public class GameEvents : MonoBehaviour
             onMastInteract();
         }
     }
+    public event Action onMast2Interact;
+    public void Mast2Interact(){
+        if (onMastInteract != null){
+            onMast2Interact();
+        }
+    }
 }
