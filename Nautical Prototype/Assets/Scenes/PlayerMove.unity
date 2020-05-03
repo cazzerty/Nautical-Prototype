@@ -750,6 +750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1804226614}
   - component: {fileID: 1804226613}
+  - component: {fileID: 1804226615}
   m_Layer: 0
   m_Name: GameEventSystem
   m_TagString: Untagged
@@ -783,6 +784,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1804226615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804226612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98719fc63d4b96f43bfa329032543e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toInstantiate: {fileID: 6209242497410180173, guid: 73ce3b4ab24cefc4290f21d070c3afb8,
+    type: 3}
 --- !u!1 &1952651011 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1935978581695610412, guid: 02681238156a3a041b0c831525cfc8d4,
@@ -959,6 +974,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2673820521418818154, guid: 8077dd06c166761409cc6f7c7d72526c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.59
+      objectReference: {fileID: 0}
     - target: {fileID: 2673820521418818155, guid: 8077dd06c166761409cc6f7c7d72526c,
         type: 3}
       propertyPath: orthographic size
