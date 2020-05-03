@@ -8,8 +8,8 @@ public class InstantiateWater : MonoBehaviour
     public GameObject toInstantiate;
     void Start()
     {
-        for(int i = 0; i < 200; i = i + 4){
-            for(int k = 0; k < 200; k = k + 4){
+        for(int i = 0; i < 200; i = i + 1){
+            for(int k = 0; k < 200; k = k + 1){
                 Instantiate(toInstantiate, new Vector3(i,k,0f), new Quaternion());
             }
         }

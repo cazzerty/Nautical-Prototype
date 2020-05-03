@@ -20,13 +20,16 @@ public class PlayerMov : MonoBehaviour
     void Update()
     {
         if(!disableMove){
-            Vector3 inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-            GetComponent<Rigidbody2D>().velocity = (inputVector * playerSpeed);
+            //Vector3 inputVector = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
+            
         }
     }
 
     void changeDisableState(){
         disableMove = !disableMove;
-        Debug.Log("Echo");
     }
+/*
+    private void Move(InputValue value){
+        GetComponent<Rigidbody2D>().velocity = (value.Get<Vector2>() * playerSpeed);
+    }*/
 }
