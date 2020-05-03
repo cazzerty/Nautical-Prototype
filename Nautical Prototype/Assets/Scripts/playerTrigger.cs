@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerTrigger : MonoBehaviour
 {
     private string inRange;
-    private bool wheelLocked = false;
+    bool wheelLocked = false;
     void Update() {
         if (Input.GetButtonDown("Jump")){
             switch(inRange)
@@ -18,13 +18,16 @@ public class playerTrigger : MonoBehaviour
                 break;
                 case "Wheel":
                     if (wheelLocked){
+                        GameEvents.current.WheelInteract();
                         wheelLocked = false;
                     }else{
                         if (GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().getWheelInUse()){
                             //To do: Implement Player Lock Event and Boat Control Event
-                            wheelLocked = false;
+                            
                         }else{
+                            GameEvents.current.WheelInteract();
                             wheelLocked = true;
+                            
                         }
                     }
                 break;

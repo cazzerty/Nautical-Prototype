@@ -23,4 +23,10 @@ public class GameEvents : MonoBehaviour
             onMast2Interact();
         }
     }
+    public event Action onWheelInteract;
+    public void WheelInteract(){
+        if (onWheelInteract != null){
+            onWheelInteract();
+        }
+    }
 }

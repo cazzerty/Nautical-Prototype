@@ -21,6 +21,7 @@ public class ShipMovAcc : MonoBehaviour
     private void Start(){
         GameEvents.current.onMastInteract += mSailStateChange;
         GameEvents.current.onMast2Interact += sSailStateChange;
+        GameEvents.current.onWheelInteract += setWheelInUse;
     }
     void Awake()
     {
@@ -50,6 +51,9 @@ public class ShipMovAcc : MonoBehaviour
     }
     public bool getWheelInUse(){
         return wheelInUse;
+    }
+    public void setWheelInUse(){
+        wheelInUse = !wheelInUse;
     }
     //update for physics calculations
     void FixedUpdate()

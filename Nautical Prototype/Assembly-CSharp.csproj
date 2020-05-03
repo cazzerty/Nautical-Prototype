@@ -45,12 +45,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\FakeChild.cs" />
-     <Compile Include="Assets\Scripts\FakeChildPlayer.cs" />
      <Compile Include="Assets\Scripts\GameEvents.cs" />
+     <Compile Include="Assets\Scripts\MimicPlayerLocation.cs" />
+     <Compile Include="Assets\Scripts\Old\FakeChild.cs" />
+     <Compile Include="Assets\Scripts\Old\FakeChildPlayer.cs" />
+     <Compile Include="Assets\Scripts\Old\ShipMove.cs" />
      <Compile Include="Assets\Scripts\PlayerMov.cs" />
      <Compile Include="Assets\Scripts\ShipMovAcc.cs" />
-     <Compile Include="Assets\Scripts\ShipMove.cs" />
      <Compile Include="Assets\Scripts\playerTrigger.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
