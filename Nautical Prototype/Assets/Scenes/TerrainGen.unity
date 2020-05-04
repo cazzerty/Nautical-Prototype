@@ -849,7 +849,7 @@ MonoBehaviour:
   - {fileID: 5642214647866269388, guid: 65f6ced8bab941048b5801cfbae83d3d, type: 3}
   - {fileID: 8919845931484271645, guid: 3806668e1197616419c17d832dd064e1, type: 3}
   moveAmount: 10
-  startTimeBetweenArea: 0
+  startTimeBetweenArea: 0.25
   minX: -5
   maxX: 5
   minY: -5
