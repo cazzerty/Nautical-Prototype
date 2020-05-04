@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         }else{
             Debug.Log(playerID + " is on the wheel");
             GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().setInput(moveInput.x * -1);
+            GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
         }
     }
     //New Input System functions

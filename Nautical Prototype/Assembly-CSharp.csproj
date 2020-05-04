@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameEvents.cs" />
      <Compile Include="Assets\Scripts\InstantiateWater.cs" />
+     <Compile Include="Assets\Scripts\MastAnimator.cs" />
      <Compile Include="Assets\Scripts\MimicPlayerLocation.cs" />
      <Compile Include="Assets\Scripts\Old\FakeChild.cs" />
      <Compile Include="Assets\Scripts\Old\FakeChildPlayer.cs" />
