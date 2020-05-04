@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1935978581695610408}
   - component: {fileID: 1935978581695610410}
   - component: {fileID: 2574703143132476518}
-  - component: {fileID: 2574703143132476444}
   - component: {fileID: 6003714248945630378}
   m_Layer: 0
   m_Name: Pirate
@@ -101,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 2
+  mimic: {fileID: 8226199101258073906, guid: aa09c3549abaa96438d8a0f4d96c3aee, type: 3}
 --- !u!61 &1935978581695610408
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,18 +164,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.08}
   serializedVersion: 2
   m_Radius: 0.6
---- !u!114 &2574703143132476444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935978581695610412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7fc25c9764f2c4ca87cd7d1ca9a6eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6003714248945630378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,9 +189,17 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5364d34d-f312-4021-af30-abf7b8eebcf4
+    m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ed15e49e-631a-4ea4-9d0e-03e7115a1975
+    m_ActionName: Player/Interact[/DualShock4GamepadHID/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

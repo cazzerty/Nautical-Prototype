@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ShipPivot
+  - Mimic
   layers:
   - Default
   - TransparentFX

@@ -3,15 +3,24 @@
 public class MimicPlayerLocation: MonoBehaviour
 {
     public Transform FakeParent;
-    public GameObject playerToMimic;
+    private GameObject playerToMimic;
 
     private Vector3 _positionOffset;
     private Quaternion _rotationOffset;
 
-    private void Start()
+    private void Awake()
     {
+        FakeParent = GameObject.FindGameObjectWithTag("ShipPivot").transform;
+        GameObject[] playerCount = GameObject.FindGameObjectsWithTag("Player");
+        int h = 0;
+        foreach (GameObject p in playerCount){
+            if(p.GetComponent<PlayerController>().getID() > h){
+                playerToMimic = p;
+            }
+        }
         if(FakeParent != null)
         {
+            
             SetFakeParent(FakeParent);
         }
         transform.position = FakeParent.transform.position + getToMimicOffset();
@@ -34,9 +43,19 @@ public class MimicPlayerLocation: MonoBehaviour
         //Offset vector
         //_positionOffset = parent.position - transform.position;
         //Offset rotation
+        SetInitialRotation();
         _rotationOffset = Quaternion.Inverse(parent.localRotation * transform.localRotation);
         //Our fake parent
         FakeParent = parent;
+    }
+    public void SetInitialRotation(){
+       // _positionOffset = getToMimicOffset();
+        //var targetPos = FakeParent.position + _positionOffset;
+        //var targetRot = FakeParent.rotation;
+        //transform.position = RotatePointAroundPivot(targetPos, FakeParent.position, targetRot);
+    }
+    public void SetPlayerToMimic(GameObject player){
+        playerToMimic = player;
     }
 
     public Vector3 RotatePointAroundPivot(Vector3 point, Vector3 pivot, Quaternion rotation)

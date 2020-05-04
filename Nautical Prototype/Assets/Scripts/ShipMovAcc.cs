@@ -10,18 +10,17 @@ public class ShipMovAcc : MonoBehaviour
     public float  maxAngVel = 20;
 
     private bool mSail, sSail;
-    private bool wheelInUse;
+    public int wheelInUse;
 
     //For Manual Control
     public bool manualControl = false;
         float InputX;
-        float InputY;
+        //float InputY;
 
     // Start is called before the first frame update
     private void Start(){
         GameEvents.current.onMastInteract += mSailStateChange;
         GameEvents.current.onMast2Interact += sSailStateChange;
-        GameEvents.current.onWheelInteract += setWheelInUse;
     }
     void Awake()
     {
@@ -30,30 +29,33 @@ public class ShipMovAcc : MonoBehaviour
         vCooldown = false;
         angularVel = 0;
         maxAngVel = 20;
-        wheelInUse = false;
+        wheelInUse = 0;
     }
 
     // Update is called once per frame
     void Update(){
         if(manualControl){
             //Get inputs
-            InputX = -1 *(Input.GetAxisRaw("Horizontal"));
-            InputY = Input.GetAxisRaw("Vertical");
-            mainSailDeploy(InputY);
+            //InputX = -1 *(Input.GetAxisRaw("Horizontal"));
+            //InputY = Input.GetAxisRaw("Vertical");
+            //mainSailDeploy(InputY);
             currentAngularVelocity(InputX);
         }else{
             setForwardAcceleration();
-            if(wheelInUse){
-                InputX = -1 *(Input.GetAxisRaw("Horizontal"));
+            if(wheelInUse != 0){
+                //InputX = -1 *(Input.GetAxisRaw("Horizontal"));
                 currentAngularVelocity(InputX);
             }
         }
     }
-    public bool getWheelInUse(){
+    public int getWheelInUse(){
         return wheelInUse;
     }
-    public void setWheelInUse(){
-        wheelInUse = !wheelInUse;
+    public void setWheelInUse(int x){
+        wheelInUse = x;
+    }
+    public void setInput(float x){
+        InputX = x;
     }
     //update for physics calculations
     void FixedUpdate()
@@ -77,10 +79,10 @@ public class ShipMovAcc : MonoBehaviour
     }
 
     void mainSailDeploy(float i){
-        if (Input.GetButtonDown("Jump")){
+        /*if (Input.GetButtonDown("Jump")){
             mainSail++;
             if(mainSail == 3){mainSail = 0;}
-        }
+        }*/
         setForwardAcceleration();
     }
     private void mSailStateChange(){
@@ -95,6 +97,7 @@ public class ShipMovAcc : MonoBehaviour
         sSail = !sSail;
         Debug.Log("Second Sail state changed");
     }
+    
     void setForwardAcceleration(){
         switch(mainSail){
             case 0:
